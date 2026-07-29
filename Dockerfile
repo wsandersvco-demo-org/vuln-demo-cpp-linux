@@ -25,7 +25,8 @@ RUN apt-get update && \
         libk5crypto3 \
         libkrb5support0 \
         libcom-err2 \
-        libkeyutils1 && \
+        libkeyutils1 \
+        libcurl4-openssl-dev:arm64 && \
     curl -fsS https://tools.veracode.com/veracode-cli/install | sh && \
     curl -sSL https://sca-downloads.veracode.com/install | sh && \
     apt-get clean && \

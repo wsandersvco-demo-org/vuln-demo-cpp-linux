@@ -21,8 +21,9 @@ else
 endif
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -march=armv8-a -save-temps=obj
+CFLAGS = -Wall -Wextra -march=armv8-a -save-temps=obj $(shell pkg-config --cflags libcurl)
 CXXFLAGS = -Wall -Wextra -march=armv8-a -std=c++17 -save-temps=obj
+LDLIBS = $(shell pkg-config --libs libcurl)
 
 # Directories
 BUILD_DIR = build
@@ -48,7 +49,7 @@ $(BUILD_DIR):
 
 # Link object files to create executable
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS) $(LDLIBS)
 
 # Compile C++ source files to object files
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
