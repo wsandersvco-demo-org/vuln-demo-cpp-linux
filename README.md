@@ -20,7 +20,7 @@ make
 ```bash
 docker build . -t gcc-veracode
 docker run --rm -it -v .:/app -v ~/.veracode/veracode.yml:/root/.veracode/veracode.yml --user root --workdir /app gcc-veracode:latest bash
-`
+```
 
 ```bash
 make docker-build
