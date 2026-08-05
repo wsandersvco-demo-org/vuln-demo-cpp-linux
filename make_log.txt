@@ -1,0 +1,5 @@
+mkdir -p build
+aarch64-linux-gnu-g++ -Wall -Wextra -march=armv8-a -std=c++17 -save-temps=obj -c main.cpp -o build/main.o
+aarch64-linux-gnu-g++ -Wall -Wextra -march=armv8-a -std=c++17 -save-temps=obj -c utils.cpp -o build/utils.o
+aarch64-linux-gnu-g++ -Wall -Wextra -march=armv8-a -std=c++17 -save-temps=obj -c verademo_vulns.cpp -o build/verademo_vulns.o
+aarch64-linux-gnu-g++ build/main.o build/utils.o build/verademo_vulns.o -o build/arm64_sample -lm -lstdc++ -L/usr/lib/aarch64-linux-gnu -lkrb5 -lgssapi_krb5 -lk5crypto -lkrb5support -lcom_err -lcurl 
